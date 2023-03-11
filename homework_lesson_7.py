@@ -66,6 +66,7 @@ print(str(value).count("0"))
 # print(count)
 
 
+
 # 8. Даний список my_list, в якому можуть бути як рядки (type str), так і цілі числа (type int).
 # Наприклад [1, 2, 3, "11", "22", 33]
 # Створити новий список у який помістити лише рядки з my_list.
@@ -104,3 +105,4 @@ print(str(value).count("0"))
 # print(my_list_2)
 # set_3 = set(my_list_1).intersection(set(my_list_2))
 # print(list(set_3))
+
