@@ -2,16 +2,16 @@
 # Якщо рядок стоїть на непарному місці my_list, то його замінити на перевернутий рядок. "qwe" на "ewq".
 # Якщо на парному – залишити без зміни. Завдання зробити за допомогою enumerate або range.
 
-my_list = ["qwe", "Slavik", "Katya", "qwe", "Slavik", "Katya"]
-new_list = []
-
-for i, k in enumerate(my_list):
-    if i % 2 == 0:
-        new_list.append(k[::-1])
-    else:
-        new_list.append(k)
-
-print(new_list)
+# my_list = ["qwe", "Slavik", "Katya", "qwe", "Slavik", "Katya"]
+# new_list = []
+#
+# for i, k in enumerate(my_list):
+#     if i % 2 == 0:
+#         new_list.append(k[::-1])
+#     else:
+#         new_list.append(k)
+#
+# print(new_list)
 
 # 2. Наведено список рядків my_list. Створити новий список до якого помістити елементи my_list
 # у яких перший символ - буква "a".
@@ -68,15 +68,16 @@ print(new_list)
 
 # 5) Дано два словники my_dict_1 і my_dict_2.
 
-# my_dict_1 = {
-#     1: 1,
-#     2: 2,
-# }
-#
-# my_dict_2 = {
-#     11: 11,
-#     2: 22,
-# }
+my_dict_1 = {
+    1: 1,
+    2: 2,
+    5: 5,
+}
+
+my_dict_2 = {
+    11: 11,
+    2: 22,
+}
 
 # а) Створити список із ключів, які є в обох словниках.
 # set_1 = set(my_dict_1.keys())
@@ -93,16 +94,26 @@ print(new_list)
 # print(list_b)
 
 # в) Створити новий словник з пар {ключ:значення} для ключів, які є в першому, але немає в другому словнику.
+set_1 = set(my_dict_1.keys())
+set_2 = set(my_dict_2.keys())
+list_c = list(set_1.difference(set_2))
+my_list = []
+
+for i, k in my_dict_1.items():
+    if i in list_c:
+        my_list.append(i)
+        my_list.append(k)
+my_dict = {my_list[i]: my_list[i + 1] for i in range(0, len(my_list), 2)}
+
+print(my_dict)
+
 # set_1 = set(my_dict_1.keys())
 # set_2 = set(my_dict_2.keys())
-# list_c = list(set_1.difference(set_2))
-# my_list = []
+# key_difference_list = list(set_1.difference(set_2))
+# my_dict = dict()
 #
-# for i, k in my_dict_1.items():
-#     if i in list_c:
-#         my_list.append(i)
-#         my_list.append(k)
-# my_dict = {my_list[i]: my_list[i + 1] for i in range(0, len(my_list), 2)}
+# for i in key_difference_list:
+#     my_dict[i] = my_dict_1[i]
 #
 # print(my_dict)
 
@@ -123,3 +134,14 @@ print(new_list)
 #         if key_1 == key_2:
 #             new_dict.update({key_1: [val_1, val_2]})
 # print(new_dict)
+
+
+set_1 = set(my_dict_1.keys())
+set_2 = set(my_dict_2.keys())
+key_difference_list = list(set_1.difference(set_2))
+my_dict = dict()
+
+for i in key_difference_list:
+    my_dict[i] = my_dict_1[i]
+
+print(my_dict)
