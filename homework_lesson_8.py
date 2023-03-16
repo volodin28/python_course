@@ -94,28 +94,28 @@ my_dict_2 = {
 # print(list_b)
 
 # в) Створити новий словник з пар {ключ:значення} для ключів, які є в першому, але немає в другому словнику.
-set_1 = set(my_dict_1.keys())
-set_2 = set(my_dict_2.keys())
-list_c = list(set_1.difference(set_2))
-my_list = []
-
-for i, k in my_dict_1.items():
-    if i in list_c:
-        my_list.append(i)
-        my_list.append(k)
-my_dict = {my_list[i]: my_list[i + 1] for i in range(0, len(my_list), 2)}
-
-print(my_dict)
-
 # set_1 = set(my_dict_1.keys())
 # set_2 = set(my_dict_2.keys())
-# key_difference_list = list(set_1.difference(set_2))
-# my_dict = dict()
+# list_c = list(set_1.difference(set_2))
+# my_list = []
 #
-# for i in key_difference_list:
-#     my_dict[i] = my_dict_1[i]
+# for i, k in my_dict_1.items():
+#     if i in list_c:
+#         my_list.append(i)
+#         my_list.append(k)
+# my_dict = {my_list[i]: my_list[i + 1] for i in range(0, len(my_list), 2)}
 #
 # print(my_dict)
+
+set_1 = set(my_dict_1.keys())
+set_2 = set(my_dict_2.keys())
+key_difference_list = list(set_1.difference(set_2))
+my_dict = dict()
+
+for i in key_difference_list:
+    my_dict[i] = my_dict_1[i]
+
+print(my_dict)
 
 # г) Об'єднати ці два словники у новий словник за правилом:
 # якщо ключ є тільки в одному з двох словників - помістити пару ключ: значення,
@@ -134,14 +134,3 @@ print(my_dict)
 #         if key_1 == key_2:
 #             new_dict.update({key_1: [val_1, val_2]})
 # print(new_dict)
-
-
-set_1 = set(my_dict_1.keys())
-set_2 = set(my_dict_2.keys())
-key_difference_list = list(set_1.difference(set_2))
-my_dict = dict()
-
-for i in key_difference_list:
-    my_dict[i] = my_dict_1[i]
-
-print(my_dict)
