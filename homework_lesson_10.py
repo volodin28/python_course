@@ -1,3 +1,5 @@
+from datetime import datetime
+
 # 1. Написати функцію, яка отримує як параметр ім'я файлу назви інтернет доменів (domains.txt)
 # та повертає їх у вигляді списку рядків (назви повертати без крапки).
 
@@ -61,8 +63,6 @@ print(get_dates())
 # Наприклад [{"date_original": "8th February 1828", "date_modified": 08/02/1828}, ...]
 
 
-from datetime import datetime
-
 def get_dates_2(file_name="authors.txt"):
     dates_list = []
     dates_list_full = []
@@ -75,14 +75,14 @@ def get_dates_2(file_name="authors.txt"):
                 dates_list_full.append(' '.join(line_data_full[:3]))
     dict_dates = []
     for i, j in zip(dates_list_full, dates_list):
-        dict_dates.append({"date_original": i, "date_modified": datetime.strptime(j, '%d %B %Y').strftime("%d/%m/%y")})
+        if i[-1].isnumeric():
+            dict_dates.append(
+                {"date_original": i, "date_modified": datetime.strptime(j, '%d %B %Y').strftime("%d/%m/%Y")})
+        else:
+            dict_dates.append(
+                {"date_original": i[:-2], "date_modified": datetime.strptime(j[:-2], '%B %Y').strftime("%m/%Y")})
     return dict_dates
 
 
 print(get_dates_2())
 
-
-
-
-
-# print(datetime.strptime("8 February 1828", '%d %B %Y').strftime("%d/%m/%y"))
