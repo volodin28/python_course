@@ -128,7 +128,7 @@ from string import ascii_lowercase
 def email_generator():
     names = ["king", "miller", "kean"]
     domains = ["net", "com", "ua"]
-    rand_i = ''.join(choice(ascii_lowercase) for _ in range(randint(5, 8)))
+    rand_i = ''.join(choice(ascii_lowercase) for _ in range(randint(5, 7)))
 
     return f"{choice(names)}{randint(100, 999)}@{rand_i}.{choice(domains)}"
 
